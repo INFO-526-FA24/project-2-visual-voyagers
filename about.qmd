@@ -11,4 +11,4 @@ This project was developed by \*\*\Visual Voyagers\*\* For [INFO 526 - Data Anal
 
 -   Team member 3:Viren Sasalu, Masters in Information Science(Machine Learning) , Year - 2
 
--   Team member 4: Bhaskar B Kashyap, Masters of Science in Information Scinece(Machine Learning), Year- 2,
+-   Team member 4: Bhaskar B Kashyap, Masters of Science in Information Scinece(Machine Learning), Year- 2
