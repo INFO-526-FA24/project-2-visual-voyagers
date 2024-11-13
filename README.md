@@ -24,4 +24,4 @@ project-2-visual-voyagers/
 ├── code.R
 ├── proposal.html
 ├── proposal.qmd
-├── README.md
+└── README.md
