@@ -30,7 +30,9 @@ The source of dataset <https://www.kaggle.com/datasets/uciml/breast-cancer-wisco
 
 ## **Why this Data set?**
 
-The Breast Cancer Wisconsin Diagnostic Dataset is a widely used, high-quality dataset containing 569 samples with 30 features that describe tumor characteristics, allowing for effective benign vs. malignant binary classification. Its clinical relevance, well-labeled structure, and feature variety make it ideal for developing and benchmarking diagnostic models in machine learning. This dataset provides a reliable foundation for researchers and students to build predictive models, contributing to advancements in medical diagnostics and offering a valuable educational tool.
+The **Breast Cancer Wisconsin Diagnostic Dataset** is a widely used, high-quality dataset containing **569 samples** with **30 features** that describe tumor characteristics, allowing for effective **benign vs. malignant** binary classification. Its clinical relevance, well-labeled structure, and feature variety make it ideal for developing and benchmarking diagnostic models in machine learning.
+
+This dataset is characterized by its **low dimensionality**, making it particularly well-suited for testing various classification algorithms and benchmarking their performance. It provides a reliable foundation for researchers and students to build predictive models, contributing to advancements in medical diagnostics and offering a valuable educational tool.
 
 ## Basic EDA
 
@@ -93,18 +95,18 @@ This question is crucial because assessing robustness to noise and outliers reve
 
 ## Plan of Attack
 
-| Task Name                 | Status    | Assignee                         | Due        | Priority | Summary         |
-|---------------------------|-----------|----------------------------------|------------|----------|-----------------|
-| Proposal                  | Completed | Gaurangi                         | 11/12/24   | High     | Good, standing  |
-| Basic EDA                 | Completed | Viren                            | 11/12/24   | moderate | Good, standing  |
-|                           |           |                                  |            |          |                 |
-| Question 1                | WIP       | Bhaskar                          | 11/19/2024 | High     |                 |
-|                           |           |                                  |            |          |                 |
-| Question 2                | WIP       | Tushar                           | 11/22/2024 | High     |                 |
-|                           |           |                                  |            |          |                 |
-| Question 3                | WIP       | Bhaskar, Gaurangi, Viren         | 11/23/2024 | High     |                 |
-|                           |           |                                  |            |          |                 |
-| Question 4                | WIP       | Tushar, Viren, Bhaskar, Gaurangi | 11/27/2024 | High     |                 |
-| Final proposal changes    | WIP       |                                  | 12/01/24   | High     |                 |
-| Review                    | WIP       | Team                             | 12/04/24   | High     |                 |
-| Final poster/presentation | WIP       | Team                             | 12/11/24   | High     |                 |
+| Task Name | Status | Assignee | Due | Priority | Summary |
+|------------|------------|---------------|------------|------------|------------|
+| Proposal | Completed | Gaurangi | 11/12/24 | High | Good, standing |
+| Basic EDA | Completed | Viren | 11/12/24 | moderate | Good, standing |
+|  |  |  |  |  |  |
+| Question 1 | WIP | Bhaskar | 11/19/2024 | High |  |
+|  |  |  |  |  |  |
+| Question 2 | WIP | Tushar | 11/22/2024 | High |  |
+|  |  |  |  |  |  |
+| Question 3 | WIP | Bhaskar, Gaurangi, Viren | 11/23/2024 | High |  |
+|  |  |  |  |  |  |
+| Question 4 | WIP | Tushar, Viren, Bhaskar, Gaurangi | 11/27/2024 | High |  |
+| Final proposal changes | WIP |  | 12/01/24 | High |  |
+| Review | WIP | Team | 12/04/24 | High |  |
+| Final poster/presentation | WIP | Team | 12/11/24 | High |  |
