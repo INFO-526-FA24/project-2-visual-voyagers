@@ -13,7 +13,7 @@ This project is part of INFO 526 (Fall 2024) and is a team effort by the Visual 
 4) Visualization: Making charts and graphs to explain our findings in a clear way.
 
 ### Repository Structure - 
-```
+```plaintext
 project-2-visual-voyagers/
 ├── data/
 │   ├── cancer_dataset.csv
@@ -25,4 +25,3 @@ project-2-visual-voyagers/
 ├── proposal.html
 ├── proposal.qmd
 ├── README.md
-```
