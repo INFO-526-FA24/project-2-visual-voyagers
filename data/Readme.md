@@ -9,7 +9,7 @@ Features: 33, including:
 
 ### All Columns
 ## Columns
-```
+
 | Column Name               | Description                                                       |
 |---------------------------|-------------------------------------------------------------------|
 | `id`                      | Unique identifier for each case                                   |
