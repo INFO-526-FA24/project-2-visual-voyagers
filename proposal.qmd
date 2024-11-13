@@ -100,7 +100,7 @@ This question is crucial because assessing robustness to noise and outliers reve
 ## Plan of Attack
 
 | Task Name                 | Status    | Assignee                         | Due        | Priority | Summary        |
-|------------|------------|------------|------------|------------|------------|
+|---------------------------|-----------|----------------------------------|------------|----------|----------------|
 | Proposal                  | Completed | Gaurangi                         | 11/12/24   | High     | Good, standing |
 | Basic EDA                 | Completed | Viren                            | 11/12/24   | moderate | Good, standing |
 |                           |           |                                  |            |          |                |
