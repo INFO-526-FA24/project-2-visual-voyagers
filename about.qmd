@@ -1,0 +1,14 @@
+title: "About"
+format: html
+editor: visual
+---
+
+This project was developed by \*\*\Visual Voyagers\*\* For [INFO 526 - Data Analysis and Visualization](https://datavizaz.org/) at the University of Arizona. The team is comprised of the following team members.
+
+-   Team member 1: Gaurangi Raul, Masters of Science in Information Science(Machine Learning) , Year-1
+
+-   Team member 2: Tushar Vimal, Masters of Science in Information Science(Machine Learning), Year 1.
+
+-   Team member 3:Viren Sasalu, Masters of Science in Information Science(Machine Learning) , Year - 2
+
+-   Team member 4: Bhaskar B Kashyap, Masters of Science in Information Scinece(Machine Learning), Year- 2
