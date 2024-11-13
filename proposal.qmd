@@ -1,6 +1,6 @@
 ---
-title: "Breast cancer Diagnostic Dataset"
-subtitle: "proposal"
+title: "Analysis of different classification models"
+subtitle: "Proposal"
 author: 
       - name: "Visual Voyagers"
 affiliations:
@@ -16,6 +16,10 @@ code-annotations: hover
 execute:
   warning: false      
 ---
+
+## High level goal
+
+To visualize different Machine Learning Classification Algorithms which can help identify whether a particular tumor is malignant or benign.
 
 ## Dataset
 
@@ -40,7 +44,7 @@ This dataset is characterized by its **low dimensionality**, making it particula
 library(ggplot2)
 library(dplyr)
 
-your_dataset <- read.csv("data/data.csv")
+your_dataset <- read.csv("data/cancer_dataset.csv")
 
 # View the first few rows of the dataset
 head(your_dataset)
@@ -71,42 +75,42 @@ print(unique_values)
 
 **Question 1**: How does the accuracy of Model A (e.g., Logistic Regression) compare to Model B (e.g., SVM) when predicting the diagnosis? Which model performs best on the test set?
 
-##### why?
+##### why this question ?
 
-We chose this question because comparing the accuracy of different models, like Logistic Regression and SVM, is essential for identifying the best-performing model on the test set. This question helps you understand which model is most effective for predicting the diagnosis in this dataset.
+We choose this question because comparing the accuracy of different models, like Logistic Regression and SVM, is essential for identifying the best-performing model on the test set. This question helps you understand which model is most effective for predicting the diagnosis in this dataset.
 
 **Question 2**:How do the Receiver Operating Characteristic (ROC) curves and Area Under the Curve (AUC) scores differ among the models? This can show which model offers the best trade-off between true positive and false positive rates.
 
-##### why?
+##### why this question ?
 
 This question is valuable because comparing ROC curves and AUC scores provides insight into each model’s ability to balance true positives and false positives. It helps identify the model with the best overall performance, especially when handling imbalanced data or cases where both sensitivity and specificity are important.
 
 **Question 3**:How does tuning specific hyperparameters (e.g., regularization in Logistic Regression, kernel type in SVM) affect model performance?
 
-##### why?
+##### why this question ?
 
 This question is important because tuning hyperparameters allows you to optimize each model’s performance, potentially improving accuracy, precision, and recall. It helps you understand how specific parameter choices impact model effectiveness on this dataset.
 
 **Question 4**:How robust the models is to noise and outliers?
 
-##### why?
+##### why this question ?
 
 This question is crucial because assessing robustness to noise and outliers reveals each model’s stability and reliability under real-world conditions. It helps determine which models are better suited for handling unpredictable or messy data.
 
 ## Plan of Attack
 
-| Task Name | Status | Assignee | Due | Priority | Summary |
-|------------|------------|---------------|------------|------------|------------|
-| Proposal | Completed | Gaurangi | 11/12/24 | High | Good, standing |
-| Basic EDA | Completed | Viren | 11/12/24 | moderate | Good, standing |
-|  |  |  |  |  |  |
-| Question 1 | WIP | Bhaskar | 11/19/2024 | High |  |
-|  |  |  |  |  |  |
-| Question 2 | WIP | Tushar | 11/22/2024 | High |  |
-|  |  |  |  |  |  |
-| Question 3 | WIP | Bhaskar, Gaurangi, Viren | 11/23/2024 | High |  |
-|  |  |  |  |  |  |
-| Question 4 | WIP | Tushar, Viren, Bhaskar, Gaurangi | 11/27/2024 | High |  |
-| Final proposal changes | WIP |  | 12/01/24 | High |  |
-| Review | WIP | Team | 12/04/24 | High |  |
-| Final poster/presentation | WIP | Team | 12/11/24 | High |  |
+| Task Name                 | Status    | Assignee                         | Due        | Priority | Summary        |
+|------------|------------|------------|------------|------------|------------|
+| Proposal                  | Completed | Gaurangi                         | 11/12/24   | High     | Good, standing |
+| Basic EDA                 | Completed | Viren                            | 11/12/24   | moderate | Good, standing |
+|                           |           |                                  |            |          |                |
+| Question 1                | WIP       | Bhaskar                          | 11/19/2024 | High     |                |
+|                           |           |                                  |            |          |                |
+| Question 2                | WIP       | Tushar                           | 11/22/2024 | High     |                |
+|                           |           |                                  |            |          |                |
+| Question 3                | WIP       | Bhaskar, Gaurangi, Viren         | 11/23/2024 | High     |                |
+|                           |           |                                  |            |          |                |
+| Question 4                | WIP       | Tushar, Viren, Bhaskar, Gaurangi | 11/27/2024 | High     |                |
+| Final proposal changes    | WIP       |                                  | 12/01/24   | High     |                |
+| Review                    | WIP       | Team                             | 12/04/24   | High     |                |
+| Final poster/presentation | WIP       | Team                             | 12/11/24   | High     |                |
