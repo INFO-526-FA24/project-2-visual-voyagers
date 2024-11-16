@@ -99,18 +99,26 @@ This question is crucial because assessing robustness to noise and outliers reve
 
 ## Plan of Attack
 
-| Task Name                 | Status    | Assignee                         | Due        | Priority | Summary        |
-|---------------------------|-----------|----------------------------------|------------|----------|----------------|
-| Proposal                  | Completed | Gaurangi                         | 11/12/24   | High     | Good, standing |
-| Basic EDA                 | Completed | Viren                            | 11/12/24   | moderate | Good, standing |
-|                           |           |                                  |            |          |                |
-| Question 1                | WIP       | Bhaskar                          | 11/19/2024 | High     |                |
-|                           |           |                                  |            |          |                |
-| Question 2                | WIP       | Tushar                           | 11/22/2024 | High     |                |
-|                           |           |                                  |            |          |                |
-| Question 3                | WIP       | Bhaskar, Gaurangi, Viren         | 11/23/2024 | High     |                |
-|                           |           |                                  |            |          |                |
-| Question 4                | WIP       | Tushar, Viren, Bhaskar, Gaurangi | 11/27/2024 | High     |                |
-| Final proposal changes    | WIP       |                                  | 12/01/24   | High     |                |
-| Review                    | WIP       | Team                             | 12/04/24   | High     |                |
-| Final poster/presentation | WIP       | Team                             | 12/11/24   | High     |                |
+| Task Name                             | Status    | Assignee                        | Due        | Priority | Summary                                         |
+|------------|------------|------------|------------|------------|----------------|
+| Create Proposal                       | Completed | Gaurangi, Tushar                | 11/12/24   | High     | Finish proposal and upload to GitHub repo       |
+| Feature Engineering                   | Completed | Viren, Bhaskar                  | 11/12/24   | moderate | work on basic EDA                               |
+| Update the proposal after peer review | WIP       | Gaurangi, Tushar,Viren, Bhaskar | 11/18/24   | high     | Revise proposal according to the feedback       |
+| Question 1                            | WIP       | Gaurangi, Tushar                | 11/19/2024 | High     | Finish Q1                                       |
+| Question 2                            | WIP       | Viren Bhaskar                   | 11/22/2024 | High     | Finish Q2                                       |
+| Question 3                            | WIP       | Bhaskar, Tushar                 | 11/23/2024 | High     | Finish Q3                                       |
+| Question 4                            | WIP       | Viren, Gaurangi                 | 11/27/2024 | High     | Finish Q4                                       |
+| Final analysis                        | WIP       | Team                            | 12/01/24   | High     | Finish design poster for ishowcase presentation |
+| Poster review                         | WIP       | Team                            | 12/04/24   | High     | Do peer review in class                         |
+| Final ishowcase presentation          | WIP       | Team                            | 12/11/24   | High     | Do ishowcase presentation                       |
+| Write-up                              | WIP       | Team                            | 12/13/24   | High     | Finish final write up                           |
+
+#### Final repository organisation
+
+-   **data/**: Contains dataset. It includes README, which details dataset parameters.
+
+-   **plots/**:Includes ggplot2 visualizations for each question. The README file explains each plot.
+
+-   **docs/**:Consist of write-up, final report. README outlines project goals and methods.
+
+-   **proposal.qmd**: Project proposal in qmd format.
