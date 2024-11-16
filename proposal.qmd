@@ -73,37 +73,41 @@ print(unique_values)
 
 ## Questions
 
-**Question 1**: How does the accuracy of a compare to another when predicting the diagnosis? Which model performs best on the test set?
+**Question 1**: How does the accuracy of a mdoel compare to another when predicting the diagnosis? Which model performs best on the test set?
 #####Approach:
--	We will be using three models: SVM, LG, NB. 
--	After training the model with the dataset, we will compare and analysis the the accuracy of the model’s performance.
-
-#####Why this question: We choose this question because comparing the accuracy of different models, like Logistic Regression, NB and VM, is essential for identifying the best-performing model on the test set. This question helps you understand which model is most effective for predicting the diagnosis in this dataset.
+-	We will be using three models: SVM, Logistic Regression, Naive Baye's. 
+-	After training the model with the dataset, we will compare and analyze the the accuracy of the model’s performance.
+#####Why this question: We chose this question because comparing the accuracy of different models, like Logistic Regression, NB and SVM, is essential for identifying the best-performing model on the test set. This question helps you understand which model is most effective for predicting the diagnosis in a dataset.
 #####Visuals: 
 -	We will plot a bar chart with model type on one axis and accuracy score on the other. This will show an excellent contrast between the models.
 -	*Scatter plot
 
 
 **Question 2**: How do the Receiver Operating Characteristic (ROC) curves and Area Under the Curve (AUC) scores differ among the models? This can show which model offers the best trade-off between true positive and false positive rates.	
--	#####Approach: We will be using three models: SVM ,LG and NB.
--	After training the model with the dataset, we will compare the ROC and the area under the curve which represents the probability that the model, if given a randomly chosen positive and negative example, will rank the positive higher than the negative.
-
+#####Approach: We will be using three models: SVM ,LR and NB.
+-	After training the model with the dataset, we will compare the ROC and the AUC which represents the probability of that the model, if given a randomly chosen positive and negative example, will rank the positive higher than the negative.
 #####Why this question: This question is valuable because comparing ROC curves and AUC scores provides insight into each model’s ability to balance true positives and false positives. It helps identify the model with the best overall performance, especially when handling imbalanced data or cases where both sensitivity and specificity are important.
 #####Visuals: we will plot a 3D surface with true positive rate, false positive rate, and AUC values, where each model is represented as a unique surface. This gives a spatial view of each model’s trade-off between TPR and FPR.
 
 
 **Question 3**: How does tuning specific hyperparameters affect model performance?
 #####Approach: - *After the model training, we will use hyperparameter tuning to enhance the model’s performance, optimization and then draw a comparison
-
 #####Why this question: @This question is important because tuning hyperparameters allows you to optimize each model’s performance, potentially improving accuracy, precision, and recall. It helps you understand how specific parameter choices impact model effectiveness on this dataset. (Before and after hyper parameter. ** question 1)
 #####Visuals:  we will be comparing accuracy after hyperparameter tuning with different models using a bar plot
 
 
-**Question 4**: How robust the models are to noise and outliers?
-#####Approach: Based on question 3, after training model based on the performance, we will use correlation matrix to check the best attributes that influence the prediction.
+**Question 4**: 
+#####Approach: 
+-       Use the correlation matrix to identify the two most strongly correlated features with the target variable for each model.
+-       Train each model (SVM, LR, NB) using all features.
+-       Visualize the decision boundaries and classification regions based only on the top two features, while keeping the model trained on all features.
+#####Why this question: This question allows us to understand how the top two influential features impact classification and provides insights into each model’s decision-making process. It also highlights the effectiveness of the models in separating classes using key variables, even when trained on the full dataset.
+#####Visuals:
+-      Scatter Plot with Decision Boundaries:
+-      Plot the data points on a 2D plane with the top two features on the axes.
+-      Overlay the decision boundaries and classification regions for each model.
+-      Use distinct colors to represent the predicted classes and markers to show actual class labels.
 
-#####Why this question: This question is crucial because assessing robustness to noise and outliers reveals each model’s stability and reliability under real-world conditions. It helps determine which models are better suited for handling unpredictable or messy data.
-#####Visuals: We will use the heatmap to visualize this
 
 ## Plan of Attack
 _________________________________________________________________________________________________________________________________________________________________
