@@ -92,21 +92,15 @@ print(unique_values)
 
 **Question 3**: How does tuning specific hyperparameters affect model performance?
 #####Approach: - *After the model training, we will use hyperparameter tuning to enhance the model’s performance, optimization and then draw a comparison
-#####Why this question: @This question is important because tuning hyperparameters allows you to optimize each model’s performance, potentially improving accuracy, precision, and recall. It helps you understand how specific parameter choices impact model effectiveness on this dataset. (Before and after hyper parameter. ** question 1)
-#####Visuals:  we will be comparing accuracy after hyperparameter tuning with different models using a bar plot
+#####Why this question: This question is important because tuning hyperparameters allows you to optimize each model’s performance, potentially improving accuracy, precision, and recall. It helps you understand how specific parameter choices impact model effectiveness on this dataset. (Before and after hyper-parameter tuning.)
+#####Visuals:  We will be comparing accuracy after hyperparameter tuning with different models using a bar plot.
 
 
-**Question 4**: 
-#####Approach: 
--       Use the correlation matrix to identify the two most strongly correlated features with the target variable for each model.
--       Train each model (SVM, LR, NB) using all features.
--       Visualize the decision boundaries and classification regions based only on the top two features, while keeping the model trained on all features.
+**Question 4**: How do the top two correlated features with the target variable influence the classifications of SVM, Logistic Regression, and Naive Bayes?
+#####Approach: Use the correlation matrix to find the two best features that have the highest correlation with the target variable. Train two of the best performing models on all the features and then visualize the classification regions and decision boundary using only the two best features mapped to the two axes while trained on all the features.
+
 #####Why this question: This question allows us to understand how the top two influential features impact classification and provides insights into each model’s decision-making process. It also highlights the effectiveness of the models in separating classes using key variables, even when trained on the full dataset.
-#####Visuals:
--      Scatter Plot with Decision Boundaries:
--      Plot the data points on a 2D plane with the top two features on the axes.
--      Overlay the decision boundaries and classification regions for each model.
--      Use distinct colors to represent the predicted classes and markers to show actual class labels.
+#####Visuals: We will use a scatter plot with the top two features on each axis and visualize how the different models classify the data points using different colors to mark different classes.
 
 
 ## Plan of Attack
