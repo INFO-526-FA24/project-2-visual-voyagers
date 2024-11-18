@@ -10,9 +10,7 @@ The basic outline of this project is to use the dataset 'Breast Cancer Diagnosti
 
 2) Model Analysis: After the EDA, we have decided to use Logistic Regression, Support Vector Machine and Naive Bayes classifier
 
-3) Visualization: We will be working on visualising the models performance on various criteria and use the found insights to represent them visually. 
-
-
+3) Visualization: We will be working on visualising the models performance on various criteria and use the found insights to represent them visually using scatter plot, bar chart plot etc. 
 
 ### Repository Structure - 
 ```plaintext
@@ -20,10 +18,11 @@ project-2-visual-voyagers/
 ├── data/
 │   ├── cancer_dataset.csv
 |   └── Readme.md
-├── images/
+├── plots/
+│   └── Readme.md
+├── docs/
 │   └── Readme.md
 ├── about.qmd
-├── code.R
 ├── proposal.html
 ├── proposal.qmd
 └── README.md
