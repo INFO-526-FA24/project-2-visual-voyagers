@@ -26,5 +26,3 @@ project-2-visual-voyagers/
 ├── proposal.html
 ├── proposal.qmd
 └── README.md
-
-
