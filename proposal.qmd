@@ -125,8 +125,8 @@ print(unique_values)
 
 -   **data/**: Contains dataset. It includes README, which details dataset parameters.
 
--   **plots/**:Includes ggplot2 visualizations for each question. The README file explains each plot.
+-   **plots/**: Includes ggplot2 visualizations for each question. The README file explains each plot.
 
--   **docs/**:Consist of write-up, final report. README outlines project goals and methods.
+-   **docs/**: Consist of write-up, final report. README outlines project goals and methods.
 
 -   **proposal.qmd**: Project proposal in qmd format.
