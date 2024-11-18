@@ -120,7 +120,6 @@ print(unique_values)
 | Poster review | WIP | Team | 12/04/24 | High | Do peer review in class |
 | Final ishowcase presentation | WIP | Team | 12/11/24 | High | Do ishowcase presentation |
 | Write-up | WIP | Team | 12/13/24 | High | Finish final write up |
-|  |  |  |  |  |  |
 
 #### Final repository organisation
 
