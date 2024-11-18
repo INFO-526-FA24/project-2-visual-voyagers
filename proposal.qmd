@@ -80,7 +80,7 @@ print(unique_values)
 
 **Why this question** : We chose this question because comparing the accuracy of different models, like Logistic Regression, NB and SVM, is essential for identifying the best-performing model on the test set. This question helps you understand which model is most effective for predicting the diagnosis in a dataset.
 
-**Visuals** : - We will plot a bar chart with model type on one axis and accuracy score on the other. This will show an excellent contrast between the models. - \*Scatter plot
+**Visuals** : - We will plot a bar chart with model type on one axis and accuracy score on the other. This will show an excellent contrast between the models.
 
 **Question 2** : How do the Receiver Operating Characteristic (ROC) curves and Area Under the Curve (AUC) scores differ among the models? This can show which model offers the best trade-off between true positive and false positive rates.
 
