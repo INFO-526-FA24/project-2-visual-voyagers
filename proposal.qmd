@@ -74,7 +74,7 @@ print(unique_values)
 
 ## Questions
 
-**Question 1** : How does the accuracy of a mdoel compare to another when predicting the diagnosis? Which model performs best on the test set?
+**Question 1** : How does the accuracy of a models compare to another when predicting the diagnosis? Which model performs best on the test set?
 
 **Approach** : - We will be using three models: SVM, Logistic Regression, Naive Baye's. - After training the model with the dataset, we will compare and analyze the the accuracy of the model’s performance.
 
@@ -111,7 +111,7 @@ print(unique_values)
 | Task Name | Status | Assignee | Due | Priority | Summary |
 |------------|------------|------------|------------|------------|------------|
 | Create Proposal | Completed | Gaurangi, Tushar | 11/12/24 | High | Finish proposal and upload to GitHub repo |
-| Update the proposal after peer review | WIP | Gaurangi, Tushar,Viren, Bhaskar | 11/18/24 | high | Revise proposal according to the feedback |
+| Update the proposal after peer review | Completed | Gaurangi, Tushar,Viren, Bhaskar | 11/18/24 | high | Revise proposal according to the feedback |
 | Question 1 | WIP | Gaurangi, Tushar | 11/19/2024 | High | Finish Q1 |
 | Question 2 | WIP | Viren Bhaskar | 11/22/2024 | High | Finish Q2 |
 | Question 3 | WIP | Bhaskar, Tushar | 11/23/2024 | High | Finish Q3 |
