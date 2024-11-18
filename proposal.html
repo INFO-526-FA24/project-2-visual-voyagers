@@ -3122,8 +3122,8 @@ vertical-align: -.125em;
 <p>Source: The data set we choose for this project is “Breast Cancer Diagnostic Data” we are getting the data set from UCI Machine Learning Repository: <a href="https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29" class="uri">https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29</a></p>
 <p>The source of dataset <a href="https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data" class="uri">https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data</a></p>
 </section>
-<section id="why-this-data-set" class="level2">
-<h2 class="anchored" data-anchor-id="why-this-data-set"><strong>Why this Data set?</strong></h2>
+<section id="why-this-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-dataset">Why this Dataset ?</h2>
 <p>The <strong>Breast Cancer Wisconsin Diagnostic Dataset</strong> is a widely used, high-quality dataset containing <strong>569 samples</strong> with <strong>30 features</strong> that describe tumor characteristics, allowing for effective <strong>benign vs. malignant</strong> binary classification. Its clinical relevance, well-labeled structure, and feature variety make it ideal for developing and benchmarking diagnostic models in machine learning.</p>
 <p>This dataset is characterized by its <strong>low dimensionality</strong>, making it particularly well-suited for testing various classification algorithms and benchmarking their performance. It provides a reliable foundation for researchers and students to build predictive models, contributing to advancements in medical diagnostics and offering a valuable educational tool.</p>
 </section>
@@ -3384,34 +3384,33 @@ vertical-align: -.125em;
 </section>
 <section id="questions" class="level2">
 <h2 class="anchored" data-anchor-id="questions">Questions</h2>
-<p><strong>Question 1</strong>: How does the accuracy of a mdoel compare to another when predicting the diagnosis? Which model performs best on the test set?</p>
+<p><strong>Question 1</strong> : How does the accuracy of a mdoel compare to another when predicting the diagnosis? Which model performs best on the test set?</p>
 <p><strong>Approach</strong> : - We will be using three models: SVM, Logistic Regression, Naive Baye’s. - After training the model with the dataset, we will compare and analyze the the accuracy of the model’s performance.</p>
 <p><strong>Why this question</strong> : We chose this question because comparing the accuracy of different models, like Logistic Regression, NB and SVM, is essential for identifying the best-performing model on the test set. This question helps you understand which model is most effective for predicting the diagnosis in a dataset.</p>
 <p><strong>Visuals</strong> : - We will plot a bar chart with model type on one axis and accuracy score on the other. This will show an excellent contrast between the models. - *Scatter plot</p>
 <p><strong>Question 2</strong> : How do the Receiver Operating Characteristic (ROC) curves and Area Under the Curve (AUC) scores differ among the models? This can show which model offers the best trade-off between true positive and false positive rates.</p>
-<p><br>
-<strong>Approach</strong> : We will be using three models: SVM ,LR and NB. - After training the model with the dataset, we will compare the ROC and the AUC which represents the probability of that the model, if given a randomly chosen positive and negative example, will rank the positive higher than the negative.</p>
+<p><strong>Approach</strong> : We will be using three models: SVM ,LR and NB. - After training the model with the dataset, we will compare the ROC and the AUC which represents the probability of that the model, if given a randomly chosen positive and negative example, will rank the positive higher than the negative.</p>
 <p><strong>Why this question</strong> : This question is valuable because comparing ROC curves and AUC scores provides insight into each model’s ability to balance true positives and false positives. It helps identify the model with the best overall performance, especially when handling imbalanced data or cases where both sensitivity and specificity are important.</p>
 <p><strong>Visuals</strong> : We will plot a 3D surface with true positive rate, false positive rate, and AUC values, where each model is represented as a unique surface. This gives a spatial view of each model’s trade-off between TPR and FPR.</p>
 <p><strong>Question 3</strong>: How does tuning specific hyperparameters affect model performance?</p>
 <p><strong>Approach</strong> : - After the model training, we will use hyperparameter tuning to enhance the model’s performance, optimization and then draw a comparison</p>
-<p><strong>Why this question</strong>: This question is important because tuning hyperparameters allows you to optimize each model’s performance, potentially improving accuracy, precision, and recall. It helps you understand how specific parameter choices impact model effectiveness on this dataset. (Before and after hyper-parameter tuning.)</p>
+<p><strong>Why this question</strong> : This question is important because tuning hyperparameters allows you to optimize each model’s performance, potentially improving accuracy, precision, and recall. It helps you understand how specific parameter choices impact model effectiveness on this dataset. (Before and after hyper-parameter tuning.)</p>
 <p><strong>Visuals</strong> : We will be comparing accuracy after hyperparameter tuning with different models using a bar plot.</p>
-<p><strong>Question 4</strong>: How do the top two correlated features with the target variable influence the classifications of SVM, Logistic Regression, and Naive Bayes?</p>
+<p><strong>Question 4</strong> : How do the top two correlated features with the target variable influence the classifications of SVM, Logistic Regression, and Naive Bayes?</p>
 <p><strong>Approach</strong> : Use the correlation matrix to find the two best features that have the highest correlation with the target variable. Train two of the best performing models on all the features and then visualize the classification regions and decision boundary using only the two best features mapped to the two axes while trained on all the features.</p>
 <p><strong>Why this question</strong> : This question allows us to understand how the top two influential features impact classification and provides insights into each model’s decision-making process. It also highlights the effectiveness of the models in separating classes using key variables, even when trained on the full dataset.</p>
-<p><strong>Visuals</strong>: We will use a scatter plot with the top two features on each axis and visualize how the different models classify the data points using different colors to mark different classes.</p>
+<p><strong>Visuals</strong> : We will use a scatter plot with the top two features on each axis and visualize how the different models classify the data points using different colors to mark different classes.</p>
 </section>
 <section id="plan-of-attack" class="level2">
 <h2 class="anchored" data-anchor-id="plan-of-attack">Plan of Attack</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 16%">
-<col style="width: 15%">
-<col style="width: 15%">
-<col style="width: 15%">
-<col style="width: 15%">
-<col style="width: 22%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -3504,22 +3503,14 @@ vertical-align: -.125em;
 <td>High</td>
 <td>Finish final write up</td>
 </tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
 <section id="final-repository-organisation" class="level4">
 <h4 class="anchored" data-anchor-id="final-repository-organisation">Final repository organisation</h4>
 <ul>
 <li><p><strong>data/</strong>: Contains dataset. It includes README, which details dataset parameters.</p></li>
-<li><p><strong>plots/</strong>:Includes ggplot2 visualizations for each question. The README file explains each plot.</p></li>
-<li><p><strong>docs/</strong>:Consist of write-up, final report. README outlines project goals and methods.</p></li>
+<li><p><strong>plots/</strong>: Includes ggplot2 visualizations for each question. The README file explains each plot.</p></li>
+<li><p><strong>docs/</strong>: Consist of write-up, final report. README outlines project goals and methods.</p></li>
 <li><p><strong>proposal.qmd</strong>: Project proposal in qmd format.</p></li>
 </ul>
 <!-- -->
@@ -4073,7 +4064,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-34"><a href="#cb19-34"></a></span>
 <span id="cb19-35"><a href="#cb19-35"></a>The source of dataset <span class="ot">&lt;https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data&gt;</span></span>
 <span id="cb19-36"><a href="#cb19-36"></a></span>
-<span id="cb19-37"><a href="#cb19-37"></a><span class="fu">## **Why this Data set?**</span></span>
+<span id="cb19-37"><a href="#cb19-37"></a><span class="fu">## Why this Dataset ?</span></span>
 <span id="cb19-38"><a href="#cb19-38"></a></span>
 <span id="cb19-39"><a href="#cb19-39"></a>The **Breast Cancer Wisconsin Diagnostic Dataset** is a widely used, high-quality dataset containing **569 samples** with **30 features** that describe tumor characteristics, allowing for effective **benign vs. malignant** binary classification. Its clinical relevance, well-labeled structure, and feature variety make it ideal for developing and benchmarking diagnostic models in machine learning.</span>
 <span id="cb19-40"><a href="#cb19-40"></a></span>
@@ -4081,97 +4072,96 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb19-42"><a href="#cb19-42"></a></span>
 <span id="cb19-43"><a href="#cb19-43"></a><span class="fu">## Basic EDA</span></span>
 <span id="cb19-44"><a href="#cb19-44"></a></span>
-<span id="cb19-45"><a href="#cb19-45"></a><span class="in">```{r EDA }</span></span>
-<span id="cb19-46"><a href="#cb19-46"></a><span class="in">library(ggplot2)</span></span>
-<span id="cb19-47"><a href="#cb19-47"></a><span class="in">library(dplyr)</span></span>
-<span id="cb19-48"><a href="#cb19-48"></a></span>
-<span id="cb19-49"><a href="#cb19-49"></a><span class="in">your_dataset &lt;- read.csv(&quot;data/cancer_dataset.csv&quot;)</span></span>
-<span id="cb19-50"><a href="#cb19-50"></a></span>
-<span id="cb19-51"><a href="#cb19-51"></a><span class="in"># View the first few rows of the dataset</span></span>
-<span id="cb19-52"><a href="#cb19-52"></a><span class="in">head(your_dataset)</span></span>
+<span id="cb19-47"><a href="#cb19-47"></a><span class="in">```{r}</span></span>
+<span id="cb19-48"><a href="#cb19-48"></a><span class="co">#| label: Basic_EDA</span></span>
+<span id="cb19-49"><a href="#cb19-49"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb19-50"><a href="#cb19-50"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb19-51"><a href="#cb19-51"></a></span>
+<span id="cb19-52"><a href="#cb19-52"></a>your_dataset <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/cancer_dataset.csv&quot;</span>)</span>
 <span id="cb19-53"><a href="#cb19-53"></a></span>
-<span id="cb19-54"><a href="#cb19-54"></a><span class="in"># Get a summary of the dataset</span></span>
-<span id="cb19-55"><a href="#cb19-55"></a><span class="in">summary(your_dataset)</span></span>
+<span id="cb19-54"><a href="#cb19-54"></a><span class="co"># View the first few rows of the dataset</span></span>
+<span id="cb19-55"><a href="#cb19-55"></a><span class="fu">head</span>(your_dataset)</span>
 <span id="cb19-56"><a href="#cb19-56"></a></span>
-<span id="cb19-57"><a href="#cb19-57"></a><span class="in"># Check the structure of the dataset</span></span>
-<span id="cb19-58"><a href="#cb19-58"></a><span class="in">str(your_dataset)</span></span>
+<span id="cb19-57"><a href="#cb19-57"></a><span class="co"># Get a summary of the dataset</span></span>
+<span id="cb19-58"><a href="#cb19-58"></a><span class="fu">summary</span>(your_dataset)</span>
 <span id="cb19-59"><a href="#cb19-59"></a></span>
-<span id="cb19-60"><a href="#cb19-60"></a><span class="in"># Check for missing values</span></span>
-<span id="cb19-61"><a href="#cb19-61"></a><span class="in">sum(is.na(your_dataset))</span></span>
+<span id="cb19-60"><a href="#cb19-60"></a><span class="co"># Check the structure of the dataset</span></span>
+<span id="cb19-61"><a href="#cb19-61"></a><span class="fu">str</span>(your_dataset)</span>
 <span id="cb19-62"><a href="#cb19-62"></a></span>
-<span id="cb19-63"><a href="#cb19-63"></a><span class="in"># Descriptive statistics</span></span>
-<span id="cb19-64"><a href="#cb19-64"></a><span class="in">describe &lt;- your_dataset %&gt;% </span></span>
-<span id="cb19-65"><a href="#cb19-65"></a><span class="in">  summarise_all(list(mean = ~mean(., na.rm = TRUE), sd = ~sd(., na.rm = TRUE)))</span></span>
-<span id="cb19-66"><a href="#cb19-66"></a><span class="in">print(describe)</span></span>
-<span id="cb19-67"><a href="#cb19-67"></a><span class="in">num_rows &lt;- nrow(your_dataset)</span></span>
-<span id="cb19-68"><a href="#cb19-68"></a><span class="in">cat(&quot;Number of rows:&quot;, num_rows, &quot;\n&quot;)</span></span>
-<span id="cb19-69"><a href="#cb19-69"></a><span class="in">num_cols &lt;- ncol(your_dataset)</span></span>
-<span id="cb19-70"><a href="#cb19-70"></a><span class="in">cat(&quot;Number of columns:&quot;, num_cols, &quot;\n&quot;)</span></span>
-<span id="cb19-71"><a href="#cb19-71"></a><span class="in">unique_values &lt;- sapply(your_dataset, function(x) length(unique(x)))</span></span>
-<span id="cb19-72"><a href="#cb19-72"></a><span class="in">cat(&quot;Unique values per column:\n&quot;)</span></span>
-<span id="cb19-73"><a href="#cb19-73"></a><span class="in">print(unique_values)</span></span>
-<span id="cb19-74"><a href="#cb19-74"></a><span class="in">```</span></span>
-<span id="cb19-75"><a href="#cb19-75"></a></span>
-<span id="cb19-76"><a href="#cb19-76"></a><span class="fu">## Questions</span></span>
-<span id="cb19-77"><a href="#cb19-77"></a></span>
-<span id="cb19-78"><a href="#cb19-78"></a>**Question 1**: How does the accuracy of a mdoel compare to another when predicting the diagnosis? Which model performs best on the test set?</span>
-<span id="cb19-79"><a href="#cb19-79"></a></span>
-<span id="cb19-80"><a href="#cb19-80"></a>**Approach** : - We will be using three models: SVM, Logistic Regression, Naive Baye&#39;s. - After training the model with the dataset, we will compare and analyze the the accuracy of the model’s performance.</span>
-<span id="cb19-81"><a href="#cb19-81"></a></span>
-<span id="cb19-82"><a href="#cb19-82"></a>**Why this question** : We chose this question because comparing the accuracy of different models, like Logistic Regression, NB and SVM, is essential for identifying the best-performing model on the test set. This question helps you understand which model is most effective for predicting the diagnosis in a dataset.</span>
-<span id="cb19-83"><a href="#cb19-83"></a></span>
-<span id="cb19-84"><a href="#cb19-84"></a>**Visuals** : - We will plot a bar chart with model type on one axis and accuracy score on the other. This will show an excellent contrast between the models. - <span class="sc">\*</span>Scatter plot</span>
-<span id="cb19-85"><a href="#cb19-85"></a></span>
-<span id="cb19-86"><a href="#cb19-86"></a>**Question 2** : How do the Receiver Operating Characteristic (ROC) curves and Area Under the Curve (AUC) scores differ among the models? This can show which model offers the best trade-off between true positive and false positive rates.</span>
-<span id="cb19-87"><a href="#cb19-87"></a></span>
-<span id="cb19-88"><a href="#cb19-88"></a>\</span>
-<span id="cb19-89"><a href="#cb19-89"></a>**Approach** : We will be using three models: SVM ,LR and NB. - After training the model with the dataset, we will compare the ROC and the AUC which represents the probability of that the model, if given a randomly chosen positive and negative example, will rank the positive higher than the negative.</span>
+<span id="cb19-63"><a href="#cb19-63"></a><span class="co"># Check for missing values</span></span>
+<span id="cb19-64"><a href="#cb19-64"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(your_dataset))</span>
+<span id="cb19-65"><a href="#cb19-65"></a></span>
+<span id="cb19-66"><a href="#cb19-66"></a><span class="co"># Descriptive statistics</span></span>
+<span id="cb19-67"><a href="#cb19-67"></a>describe <span class="ot">&lt;-</span> your_dataset <span class="sc">%&gt;%</span> </span>
+<span id="cb19-68"><a href="#cb19-68"></a>  <span class="fu">summarise_all</span>(<span class="fu">list</span>(<span class="at">mean =</span> <span class="sc">~</span><span class="fu">mean</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">sd =</span> <span class="sc">~</span><span class="fu">sd</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>)))</span>
+<span id="cb19-69"><a href="#cb19-69"></a><span class="fu">print</span>(describe)</span>
+<span id="cb19-70"><a href="#cb19-70"></a>num_rows <span class="ot">&lt;-</span> <span class="fu">nrow</span>(your_dataset)</span>
+<span id="cb19-71"><a href="#cb19-71"></a><span class="fu">cat</span>(<span class="st">&quot;Number of rows:&quot;</span>, num_rows, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb19-72"><a href="#cb19-72"></a>num_cols <span class="ot">&lt;-</span> <span class="fu">ncol</span>(your_dataset)</span>
+<span id="cb19-73"><a href="#cb19-73"></a><span class="fu">cat</span>(<span class="st">&quot;Number of columns:&quot;</span>, num_cols, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb19-74"><a href="#cb19-74"></a>unique_values <span class="ot">&lt;-</span> <span class="fu">sapply</span>(your_dataset, <span class="cf">function</span>(x) <span class="fu">length</span>(<span class="fu">unique</span>(x)))</span>
+<span id="cb19-75"><a href="#cb19-75"></a><span class="fu">cat</span>(<span class="st">&quot;Unique values per column:</span><span class="sc">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb19-76"><a href="#cb19-76"></a><span class="fu">print</span>(unique_values)</span>
+<span id="cb19-77"><a href="#cb19-77"></a><span class="in">```</span></span>
+<span id="cb19-78"><a href="#cb19-78"></a></span>
+<span id="cb19-79"><a href="#cb19-79"></a><span class="fu">## Questions</span></span>
+<span id="cb19-80"><a href="#cb19-80"></a></span>
+<span id="cb19-81"><a href="#cb19-81"></a>**Question 1** : How does the accuracy of a mdoel compare to another when predicting the diagnosis? Which model performs best on the test set?</span>
+<span id="cb19-82"><a href="#cb19-82"></a></span>
+<span id="cb19-83"><a href="#cb19-83"></a>**Approach** : - We will be using three models: SVM, Logistic Regression, Naive Baye&#39;s. - After training the model with the dataset, we will compare and analyze the the accuracy of the model’s performance.</span>
+<span id="cb19-84"><a href="#cb19-84"></a></span>
+<span id="cb19-85"><a href="#cb19-85"></a>**Why this question** : We chose this question because comparing the accuracy of different models, like Logistic Regression, NB and SVM, is essential for identifying the best-performing model on the test set. This question helps you understand which model is most effective for predicting the diagnosis in a dataset.</span>
+<span id="cb19-86"><a href="#cb19-86"></a></span>
+<span id="cb19-87"><a href="#cb19-87"></a>**Visuals** : - We will plot a bar chart with model type on one axis and accuracy score on the other. This will show an excellent contrast between the models. - <span class="sc">\*</span>Scatter plot</span>
+<span id="cb19-88"><a href="#cb19-88"></a></span>
+<span id="cb19-89"><a href="#cb19-89"></a>**Question 2** : How do the Receiver Operating Characteristic (ROC) curves and Area Under the Curve (AUC) scores differ among the models? This can show which model offers the best trade-off between true positive and false positive rates.</span>
 <span id="cb19-90"><a href="#cb19-90"></a></span>
-<span id="cb19-91"><a href="#cb19-91"></a>**Why this question** : This question is valuable because comparing ROC curves and AUC scores provides insight into each model’s ability to balance true positives and false positives. It helps identify the model with the best overall performance, especially when handling imbalanced data or cases where both sensitivity and specificity are important.</span>
+<span id="cb19-91"><a href="#cb19-91"></a>**Approach** : We will be using three models: SVM ,LR and NB. - After training the model with the dataset, we will compare the ROC and the AUC which represents the probability of that the model, if given a randomly chosen positive and negative example, will rank the positive higher than the negative.</span>
 <span id="cb19-92"><a href="#cb19-92"></a></span>
-<span id="cb19-93"><a href="#cb19-93"></a>**Visuals** : We will plot a 3D surface with true positive rate, false positive rate, and AUC values, where each model is represented as a unique surface. This gives a spatial view of each model’s trade-off between TPR and FPR.</span>
+<span id="cb19-93"><a href="#cb19-93"></a>**Why this question** : This question is valuable because comparing ROC curves and AUC scores provides insight into each model’s ability to balance true positives and false positives. It helps identify the model with the best overall performance, especially when handling imbalanced data or cases where both sensitivity and specificity are important.</span>
 <span id="cb19-94"><a href="#cb19-94"></a></span>
-<span id="cb19-95"><a href="#cb19-95"></a>**Question 3**: How does tuning specific hyperparameters affect model performance?</span>
+<span id="cb19-95"><a href="#cb19-95"></a>**Visuals** : We will plot a 3D surface with true positive rate, false positive rate, and AUC values, where each model is represented as a unique surface. This gives a spatial view of each model’s trade-off between TPR and FPR.</span>
 <span id="cb19-96"><a href="#cb19-96"></a></span>
-<span id="cb19-97"><a href="#cb19-97"></a>**Approach** : - After the model training, we will use hyperparameter tuning to enhance the model’s performance, optimization and then draw a comparison</span>
+<span id="cb19-97"><a href="#cb19-97"></a>**Question 3**: How does tuning specific hyperparameters affect model performance?</span>
 <span id="cb19-98"><a href="#cb19-98"></a></span>
-<span id="cb19-99"><a href="#cb19-99"></a>**Why this question**: This question is important because tuning hyperparameters allows you to optimize each model’s performance, potentially improving accuracy, precision, and recall. It helps you understand how specific parameter choices impact model effectiveness on this dataset. (Before and after hyper-parameter tuning.)</span>
+<span id="cb19-99"><a href="#cb19-99"></a>**Approach** : - After the model training, we will use hyperparameter tuning to enhance the model’s performance, optimization and then draw a comparison</span>
 <span id="cb19-100"><a href="#cb19-100"></a></span>
-<span id="cb19-101"><a href="#cb19-101"></a>**Visuals** : We will be comparing accuracy after hyperparameter tuning with different models using a bar plot.</span>
+<span id="cb19-101"><a href="#cb19-101"></a>**Why this question** : This question is important because tuning hyperparameters allows you to optimize each model’s performance, potentially improving accuracy, precision, and recall. It helps you understand how specific parameter choices impact model effectiveness on this dataset. (Before and after hyper-parameter tuning.)</span>
 <span id="cb19-102"><a href="#cb19-102"></a></span>
-<span id="cb19-103"><a href="#cb19-103"></a>**Question 4**: How do the top two correlated features with the target variable influence the classifications of SVM, Logistic Regression, and Naive Bayes?</span>
+<span id="cb19-103"><a href="#cb19-103"></a>**Visuals** : We will be comparing accuracy after hyperparameter tuning with different models using a bar plot.</span>
 <span id="cb19-104"><a href="#cb19-104"></a></span>
-<span id="cb19-105"><a href="#cb19-105"></a>**Approach** : Use the correlation matrix to find the two best features that have the highest correlation with the target variable. Train two of the best performing models on all the features and then visualize the classification regions and decision boundary using only the two best features mapped to the two axes while trained on all the features.</span>
+<span id="cb19-105"><a href="#cb19-105"></a>**Question 4** : How do the top two correlated features with the target variable influence the classifications of SVM, Logistic Regression, and Naive Bayes?</span>
 <span id="cb19-106"><a href="#cb19-106"></a></span>
-<span id="cb19-107"><a href="#cb19-107"></a>**Why this question** : This question allows us to understand how the top two influential features impact classification and provides insights into each model’s decision-making process. It also highlights the effectiveness of the models in separating classes using key variables, even when trained on the full dataset.</span>
+<span id="cb19-107"><a href="#cb19-107"></a>**Approach** : Use the correlation matrix to find the two best features that have the highest correlation with the target variable. Train two of the best performing models on all the features and then visualize the classification regions and decision boundary using only the two best features mapped to the two axes while trained on all the features.</span>
 <span id="cb19-108"><a href="#cb19-108"></a></span>
-<span id="cb19-109"><a href="#cb19-109"></a>**Visuals**: We will use a scatter plot with the top two features on each axis and visualize how the different models classify the data points using different colors to mark different classes.</span>
+<span id="cb19-109"><a href="#cb19-109"></a>**Why this question** : This question allows us to understand how the top two influential features impact classification and provides insights into each model’s decision-making process. It also highlights the effectiveness of the models in separating classes using key variables, even when trained on the full dataset.</span>
 <span id="cb19-110"><a href="#cb19-110"></a></span>
-<span id="cb19-111"><a href="#cb19-111"></a><span class="fu">## Plan of Attack</span></span>
+<span id="cb19-111"><a href="#cb19-111"></a>**Visuals** : We will use a scatter plot with the top two features on each axis and visualize how the different models classify the data points using different colors to mark different classes.</span>
 <span id="cb19-112"><a href="#cb19-112"></a></span>
-<span id="cb19-113"><a href="#cb19-113"></a>| Task Name | Status | Assignee | Due | Priority | Summary |</span>
-<span id="cb19-114"><a href="#cb19-114"></a>|------------|-----------|-----------|-----------|-----------|----------------|</span>
-<span id="cb19-115"><a href="#cb19-115"></a>| Create Proposal | Completed | Gaurangi, Tushar | 11/12/24 | High | Finish proposal and upload to GitHub repo |</span>
-<span id="cb19-116"><a href="#cb19-116"></a>| Update the proposal after peer review | WIP | Gaurangi, Tushar,Viren, Bhaskar | 11/18/24 | high | Revise proposal according to the feedback |</span>
-<span id="cb19-117"><a href="#cb19-117"></a>| Question 1 | WIP | Gaurangi, Tushar | 11/19/2024 | High | Finish Q1 |</span>
-<span id="cb19-118"><a href="#cb19-118"></a>| Question 2 | WIP | Viren Bhaskar | 11/22/2024 | High | Finish Q2 |</span>
-<span id="cb19-119"><a href="#cb19-119"></a>| Question 3 | WIP | Bhaskar, Tushar | 11/23/2024 | High | Finish Q3 |</span>
-<span id="cb19-120"><a href="#cb19-120"></a>| Question 4 | WIP | Viren, Gaurangi | 11/27/2024 | High | Finish Q4 |</span>
-<span id="cb19-121"><a href="#cb19-121"></a>| Final analysis | WIP | Team | 12/01/24 | High | Finish design poster for ishowcase presentation |</span>
-<span id="cb19-122"><a href="#cb19-122"></a>| Poster review | WIP | Team | 12/04/24 | High | Do peer review in class |</span>
-<span id="cb19-123"><a href="#cb19-123"></a>| Final ishowcase presentation | WIP | Team | 12/11/24 | High | Do ishowcase presentation |</span>
-<span id="cb19-124"><a href="#cb19-124"></a>| Write-up | WIP | Team | 12/13/24 | High | Finish final write up |</span>
-<span id="cb19-125"><a href="#cb19-125"></a>|  |  |  |  |  |  |</span>
-<span id="cb19-126"><a href="#cb19-126"></a></span>
-<span id="cb19-127"><a href="#cb19-127"></a><span class="fu">#### Final repository organisation</span></span>
-<span id="cb19-128"><a href="#cb19-128"></a></span>
-<span id="cb19-129"><a href="#cb19-129"></a><span class="ss">-   </span>**data/**: Contains dataset. It includes README, which details dataset parameters.</span>
-<span id="cb19-130"><a href="#cb19-130"></a></span>
-<span id="cb19-131"><a href="#cb19-131"></a><span class="ss">-   </span>**plots/**:Includes ggplot2 visualizations for each question. The README file explains each plot.</span>
-<span id="cb19-132"><a href="#cb19-132"></a></span>
-<span id="cb19-133"><a href="#cb19-133"></a><span class="ss">-   </span>**docs/**:Consist of write-up, final report. README outlines project goals and methods.</span>
-<span id="cb19-134"><a href="#cb19-134"></a></span>
-<span id="cb19-135"><a href="#cb19-135"></a><span class="ss">-   </span>**proposal.qmd**: Project proposal in qmd format.</span>
+<span id="cb19-113"><a href="#cb19-113"></a><span class="fu">## Plan of Attack</span></span>
+<span id="cb19-114"><a href="#cb19-114"></a></span>
+<span id="cb19-115"><a href="#cb19-115"></a>| Task Name | Status | Assignee | Due | Priority | Summary |</span>
+<span id="cb19-116"><a href="#cb19-116"></a>|------------|------------|------------|------------|------------|------------|</span>
+<span id="cb19-117"><a href="#cb19-117"></a>| Create Proposal | Completed | Gaurangi, Tushar | 11/12/24 | High | Finish proposal and upload to GitHub repo |</span>
+<span id="cb19-118"><a href="#cb19-118"></a>| Update the proposal after peer review | WIP | Gaurangi, Tushar,Viren, Bhaskar | 11/18/24 | high | Revise proposal according to the feedback |</span>
+<span id="cb19-119"><a href="#cb19-119"></a>| Question 1 | WIP | Gaurangi, Tushar | 11/19/2024 | High | Finish Q1 |</span>
+<span id="cb19-120"><a href="#cb19-120"></a>| Question 2 | WIP | Viren Bhaskar | 11/22/2024 | High | Finish Q2 |</span>
+<span id="cb19-121"><a href="#cb19-121"></a>| Question 3 | WIP | Bhaskar, Tushar | 11/23/2024 | High | Finish Q3 |</span>
+<span id="cb19-122"><a href="#cb19-122"></a>| Question 4 | WIP | Viren, Gaurangi | 11/27/2024 | High | Finish Q4 |</span>
+<span id="cb19-123"><a href="#cb19-123"></a>| Final analysis | WIP | Team | 12/01/24 | High | Finish design poster for ishowcase presentation |</span>
+<span id="cb19-124"><a href="#cb19-124"></a>| Poster review | WIP | Team | 12/04/24 | High | Do peer review in class |</span>
+<span id="cb19-125"><a href="#cb19-125"></a>| Final ishowcase presentation | WIP | Team | 12/11/24 | High | Do ishowcase presentation |</span>
+<span id="cb19-126"><a href="#cb19-126"></a>| Write-up | WIP | Team | 12/13/24 | High | Finish final write up |</span>
+<span id="cb19-127"><a href="#cb19-127"></a></span>
+<span id="cb19-128"><a href="#cb19-128"></a><span class="fu">#### Final repository organisation</span></span>
+<span id="cb19-129"><a href="#cb19-129"></a></span>
+<span id="cb19-130"><a href="#cb19-130"></a><span class="ss">-   </span>**data/**: Contains dataset. It includes README, which details dataset parameters.</span>
+<span id="cb19-131"><a href="#cb19-131"></a></span>
+<span id="cb19-132"><a href="#cb19-132"></a><span class="ss">-   </span>**plots/**: Includes ggplot2 visualizations for each question. The README file explains each plot.</span>
+<span id="cb19-133"><a href="#cb19-133"></a></span>
+<span id="cb19-134"><a href="#cb19-134"></a><span class="ss">-   </span>**docs/**: Consist of write-up, final report. README outlines project goals and methods.</span>
+<span id="cb19-135"><a href="#cb19-135"></a></span>
+<span id="cb19-136"><a href="#cb19-136"></a><span class="ss">-   </span>**proposal.qmd**: Project proposal in qmd format.</span>
 </code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

@@ -32,7 +32,7 @@ Source: The data set we choose for this project is "Breast Cancer Diagnostic Dat
 
 The source of dataset <https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data>
 
-## **Why this Data set?**
+## Why this Dataset ?
 
 The **Breast Cancer Wisconsin Diagnostic Dataset** is a widely used, high-quality dataset containing **569 samples** with **30 features** that describe tumor characteristics, allowing for effective **benign vs. malignant** binary classification. Its clinical relevance, well-labeled structure, and feature variety make it ideal for developing and benchmarking diagnostic models in machine learning.
 
@@ -40,7 +40,8 @@ This dataset is characterized by its **low dimensionality**, making it particula
 
 ## Basic EDA
 
-```{r EDA }
+```{r}
+#| label: Basic_EDA
 library(ggplot2)
 library(dplyr)
 
@@ -73,7 +74,7 @@ print(unique_values)
 
 ## Questions
 
-**Question 1**: How does the accuracy of a mdoel compare to another when predicting the diagnosis? Which model performs best on the test set?
+**Question 1** : How does the accuracy of a mdoel compare to another when predicting the diagnosis? Which model performs best on the test set?
 
 **Approach** : - We will be using three models: SVM, Logistic Regression, Naive Baye's. - After training the model with the dataset, we will compare and analyze the the accuracy of the model’s performance.
 
@@ -83,7 +84,6 @@ print(unique_values)
 
 **Question 2** : How do the Receiver Operating Characteristic (ROC) curves and Area Under the Curve (AUC) scores differ among the models? This can show which model offers the best trade-off between true positive and false positive rates.
 
-\
 **Approach** : We will be using three models: SVM ,LR and NB. - After training the model with the dataset, we will compare the ROC and the AUC which represents the probability of that the model, if given a randomly chosen positive and negative example, will rank the positive higher than the negative.
 
 **Why this question** : This question is valuable because comparing ROC curves and AUC scores provides insight into each model’s ability to balance true positives and false positives. It helps identify the model with the best overall performance, especially when handling imbalanced data or cases where both sensitivity and specificity are important.
@@ -94,22 +94,22 @@ print(unique_values)
 
 **Approach** : - After the model training, we will use hyperparameter tuning to enhance the model’s performance, optimization and then draw a comparison
 
-**Why this question**: This question is important because tuning hyperparameters allows you to optimize each model’s performance, potentially improving accuracy, precision, and recall. It helps you understand how specific parameter choices impact model effectiveness on this dataset. (Before and after hyper-parameter tuning.)
+**Why this question** : This question is important because tuning hyperparameters allows you to optimize each model’s performance, potentially improving accuracy, precision, and recall. It helps you understand how specific parameter choices impact model effectiveness on this dataset. (Before and after hyper-parameter tuning.)
 
 **Visuals** : We will be comparing accuracy after hyperparameter tuning with different models using a bar plot.
 
-**Question 4**: How do the top two correlated features with the target variable influence the classifications of SVM, Logistic Regression, and Naive Bayes?
+**Question 4** : How do the top two correlated features with the target variable influence the classifications of SVM, Logistic Regression, and Naive Bayes?
 
 **Approach** : Use the correlation matrix to find the two best features that have the highest correlation with the target variable. Train two of the best performing models on all the features and then visualize the classification regions and decision boundary using only the two best features mapped to the two axes while trained on all the features.
 
 **Why this question** : This question allows us to understand how the top two influential features impact classification and provides insights into each model’s decision-making process. It also highlights the effectiveness of the models in separating classes using key variables, even when trained on the full dataset.
 
-**Visuals**: We will use a scatter plot with the top two features on each axis and visualize how the different models classify the data points using different colors to mark different classes.
+**Visuals** : We will use a scatter plot with the top two features on each axis and visualize how the different models classify the data points using different colors to mark different classes.
 
 ## Plan of Attack
 
 | Task Name | Status | Assignee | Due | Priority | Summary |
-|------------|-----------|-----------|-----------|-----------|----------------|
+|------------|------------|------------|------------|------------|------------|
 | Create Proposal | Completed | Gaurangi, Tushar | 11/12/24 | High | Finish proposal and upload to GitHub repo |
 | Update the proposal after peer review | WIP | Gaurangi, Tushar,Viren, Bhaskar | 11/18/24 | high | Revise proposal according to the feedback |
 | Question 1 | WIP | Gaurangi, Tushar | 11/19/2024 | High | Finish Q1 |
