@@ -1,34 +1,41 @@
-library(pheatmap)
-library(COR)
 library(reshape2)
 library(ggplot2)
 library(tidyverse)
+library(ggcorrplot)
 library(corrplot)
+library(grid)
 
 data <- read_csv("data/cancer_dataset_cleaned.csv")
-# View(data)
-dim(data)
-
-str(data)
 
 data$diagnosis <- as.numeric(as.factor(data$diagnosis))
-# View(data)
-numeric_data<-data[sapply(data,is.numeric)]
-coorelation_matrix<- cor(data, use = "complete.obs")
-coorelation_matrix
-# corrplot(coorelation_matrix,method="circle")
 
+numeric_data <- data[sapply(data, is.numeric)]
 
-pheatmap(coorelation_matrix, 
-         cluster_rows = FALSE, 
-         cluster_cols = FALSE,
-         color = colorRampPalette(c("blue", "white", "red"))(50),
-         display_numbers = TRUE)
+correlation_matrix <- cor(numeric_data, use = "complete.obs")
 
-column <- "diagnosis"
-cor_values <- coorelation_matrix[,column]
-cor_values <- cor_values[names(cor_values)!=column]
+cor_values <- correlation_matrix[, "diagnosis"]
 
-top_5 <- sort(cor_values,decreasing = TRUE)[1:5]
-top_5
+cor_values <- cor_values[names(cor_values) != "diagnosis"]
+
+top_5_highest <- sort(cor_values, decreasing = TRUE)[1:5]
+
+top_5_lowest <- sort(cor_values, decreasing = FALSE)[1:5]
+
+selected_variables <- c("diagnosis", names(top_5_highest), names(top_5_lowest))
+
+selected_correlation_matrix <- correlation_matrix[selected_variables, selected_variables]
+
+masked_matrix <- selected_correlation_matrix
+masked_matrix[upper.tri(masked_matrix)] <- NA
+
+ggcorrplot(masked_matrix,
+           method = "square",
+           type = "full",
+           lab = TRUE,
+           lab_size = 3,
+           colors = c("blue", "white", "red"),
+           title = "Correlation Heatmap: Diagnosis and Selected Variables",
+           legend.title = "Correlation") +
+  theme(axis.text.x = element_blank(),
+        axis.ticks.x = element_blank())
 
