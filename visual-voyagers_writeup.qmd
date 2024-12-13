@@ -1,0 +1,56 @@
+---
+title: "Analysis of different classification model"
+subtitle: "INFO 526 - Fall 2024 - Project 02"
+author: 
+  - name: "Visual Voyagers"
+    affiliations:
+      - name: "College of Information, University of Arizona"
+description: ""
+format:
+   html:
+    code-tools: true
+    code-overflow: wrap
+    embed-resources: true
+editor: visual
+execute:
+  warning: false
+  echo: false
+---
+
+##Introduction
+
+This project uses the Wisconsin Breast Cancer dataset to train and evaluate Logistic Regression, SVM, and Naive Bayes models, comparing their performance with metrics like accuracy, precision, recall, and AUC.It highlights the role of identifying the most effective model for diagnosis of how machine learning can enable, accurate decision-making in healthcare.
+
+##Background
+
+The **Breast Cancer Wisconsin Diagnostic Dataset** is a widely used, high-quality dataset containing **569 samples** with **30 features** that describe tumor characteristics, allowing for effective **benign vs. malignant** binary classification.
+
+##Dataset
+
+Source: The data set we choose for this project is "Breast Cancer Diagnostic Data" we are getting the data set from UCI Machine Learning Repository: <https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29>
+
+The source of dataset <https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data>
+
+##Exploration
+
+###Question 1:
+
+####Introduction
+
+####Approach
+
+####Analysis
+
+####Question 2:
+
+####Approach
+
+####Analysis
+
+####Trends
+
+####Question 3
+
+####Approach
+
+####Analysis
