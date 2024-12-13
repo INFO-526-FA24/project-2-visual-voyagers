@@ -97,7 +97,7 @@ Here is the outline for our poster.
 
 -   Models Explored
 
-    -   Visualizations are done based on three questions which assess classification models
+    -   Visualizations are done based on three questions which assess different classification models .
 
     -   For each question, we use different key metrics to compare their performance.
 
@@ -109,9 +109,9 @@ Here is the outline for our poster.
 
 -   Future Work
 
-    -   Discuss how we can improve on the parameters of each model
+    -   Discuss how we can improve on the parameters of each model and visualize for deeper insights.
 
-    -   Discuss what other additional models can be studied about to
+    -   Discuss what other additional models can be studied about.
 
 -   References
 
