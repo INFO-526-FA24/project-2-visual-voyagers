@@ -6,7 +6,7 @@ author:
 affiliations:
       - name: "College of Information Science, University of Arizona" 
 format:
-  html:
+  html: 
     code-tools: true
     code-overflow: wrap
     code-line-numbers: true

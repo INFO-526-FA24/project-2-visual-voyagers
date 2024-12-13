@@ -1,62 +1,53 @@
-```{r}
-install.packages("e1071") 
-install.packages("caret")
-install.packages("kernlab")
-
-```
-
-```{r}
 library(e1071)
 library(caret)
 library(kernlab)
-library(ggplot2)
-```
-```{r}
+
+
 read.csv("data/cancer_dataset_cleaned.csv")
-```
-```{r}
+
+
 #load the dataset
 
 training_set <- read.csv("data/train_set.csv")
 validation_set <- read.csv("data/valid_set.csv")
 test_set <- read.csv("data/test_set.csv")
-```
 
-```{r}
+
+
 training_set$diagnosis <- as.factor(training_set$diagnosis)
 validation_set$diagnosis <- as.factor(validation_set$diagnosis)
 test_set$diagnosis <- as.factor(test_set$diagnosis)
-```
 
-```{r}
+
+
 #Train with SVM model
 svm_model <- svm(diagnosis ~ ., 
                  data = training_set, 
                  kernel = "radial", 
                  cost = 1, 
                  gamma = 0.01)
-```
 
-```{r}
+
+
 validation_predictions <- predict(svm_model, validation_set)
 validation_conf_matrix <- confusionMatrix(validation_predictions, validation_set$diagnosis)
 print(validation_conf_matrix)
-```
 
-```{r}
+
+
 test_predictions <- predict(svm_model, test_set)
 test_conf_matrix <- confusionMatrix(test_predictions, test_set$diagnosis)
 typeof(test_conf_matrix)  
 test_conf_matrix$overall["Accuracy"]
 print(test_conf_matrix)
 
-```
-```{r}
+
+
 training_set$predicted_class_svm <- as.factor(predict(svm_model, training_set))
-validation_set$predicted_class_svm<- as.factor(predict(svm_model, validation_set))
+validation_set$predicted_class_svm <-as.factor(predict(svm_model, validation_set))
 test_set$predicted_class_svm <- as.factor(predict(svm_model, test_set))
-```
-```{r}
+
+
 #accuracy
 accuracy_train_svm <- mean(training_set$diagnosis == training_set$predicted_class_svm)
 print(accuracy_train_svm)
@@ -65,46 +56,33 @@ accuracy_valid_svm <- mean(validation_set$diagnosis == validation_set$predicted_
 print(accuracy_valid_svm)
 
 accuracy_test_svm <- mean(test_set$diagnosis == test_set$predicted_class_svm)
-training_set$predicted_class <- predict(svm_model, training_set)
-validation_set$predicted_class <- predict(svm_model, validation_set)
-test_set$predicted_class <- predict(svm_model, test_set)
-```
-```{r}
-#accuracy
-accuracy_train_svm <- mean(training_set$diagnosis == training_set$predicted_class)
-print(accuracy_train_svm)
-
-accuracy_valid_svm <- mean(validation_set$diagnosis == validation_set$predicted_class)
-print(accuracy_valid_svm)
-
-accuracy_test_svm <- mean(test_set$diagnosis == test_set$predicted_class)
 print(accuracy_test_svm)
-```
+
 
 ### NAIVE BAYES
 
 
-```{r}
-nb_model <- naiveBayes(diagnosis ~ ., data = training_set)
-```
 
-```{r}
+nb_model <- naiveBayes(diagnosis ~ ., data = training_set)
+
+
+
 predictions <- predict(nb_model, validation_set)
 valid_confusion <- confusionMatrix(predictions,validation_set$diagnosis)
 print(valid_confusion)
-```
-```{r}
+
+
 test_predictions <- predict(nb_model, test_set)
 test_confusion <- confusionMatrix(test_predictions, test_set$diagnosis)
 print(test_confusion)
-```
 
-```{r}
+
+
 training_set$predicted_class_nb <- as.factor(predict(nb_model, training_set))
-validation_set$predicted_class_nb <- as.factor(predict(nb_model, validation_set))
+validation_set$predicted_class_nb <-as.factor( predict(nb_model, validation_set))
 test_set$predicted_class_nb <- as.factor(predict(nb_model, test_set))
-```
-```{r}
+
+
 #accuracy
 accuracy_train_nb <- mean(training_set$diagnosis == training_set$predicted_class_nb)
 print(accuracy_train_nb)
@@ -113,51 +91,34 @@ accuracy_valid_nb <- mean(validation_set$diagnosis == validation_set$predicted_c
 print(accuracy_valid_nb)
 
 accuracy_test_nb <- mean(test_set$diagnosis == test_set$predicted_class_nb)
-training_set$predicted_class <- predict(nb_model, training_set)
-validation_set$predicted_class <- predict(nb_model, validation_set)
-test_set$predicted_class <- predict(nb_model, test_set)
-```
-```{r}
-#accuracy
-accuracy_train_nb <- mean(training_set$diagnosis == training_set$predicted_class)
-print(accuracy_train_nb)
-
-accuracy_valid_nb <- mean(validation_set$diagnosis == validation_set$predicted_class)
-print(accuracy_valid_nb)
-
-accuracy_test_nb <- mean(test_set$diagnosis == test_set$predicted_class)
 print(accuracy_test_nb)
-```
+
 
 
 
 ###Logistic regression
 
-```{r}
-logistic_model <- glm(diagnosis ~ ., data = training_set, family = binomial)
-```
 
-```{r}
+logistic_model <- glm(diagnosis ~ ., data = training_set, family = binomial)
+
+
+
 # Predictions and confusion matrix for validation set
-validation_set$predicted_prob <- predict(logistic_model, newdata = validation_set, type = "response")
+validation_set$predicted_prob <-predict(logistic_model, newdata = validation_set, type = "response")
 validation_set$predicted_class_lr <- factor(ifelse(validation_set$predicted_prob >= 0.5, 1, 0))
 valid_confusion <- confusionMatrix(validation_set$predicted_class_lr, validation_set$diagnosis)
-validation_set$predicted_class <- factor(ifelse(validation_set$predicted_prob >= 0.5, 1, 0))
-valid_confusion <- confusionMatrix(validation_set$predicted_class, validation_set$diagnosis)
 print(valid_confusion)
-```
 
-```{r}
+
+
 # Predictions and confusion matrix for test set
 test_set$predicted_prob <- predict(logistic_model, newdata = test_set, type = "response")
 test_set$predicted_class_lr <- factor(ifelse(test_set$predicted_prob >= 0.5, 1, 0))
 test_confusion <- confusionMatrix(test_set$predicted_class_lr, test_set$diagnosis)
-test_set$predicted_class <- factor(ifelse(test_set$predicted_prob >= 0.5, 1, 0))
-test_confusion <- confusionMatrix(test_set$predicted_class, test_set$diagnosis)
 print(test_confusion)
-```
 
-```{r}
+
+
 training_set$predicted_prob <- predict(logistic_model, newdata = training_set, type = "response")
 training_set$predicted_class_lr <- factor(ifelse(training_set$predicted_prob >= 0.5, 1, 0))
 
@@ -167,16 +128,8 @@ validation_set$predicted_class_lr <- factor(ifelse(validation_set$predicted_prob
 test_set$predicted_prob <- predict(logistic_model, newdata = test_set, type = "response")
 test_set$predicted_class_lr <- factor(ifelse(test_set$predicted_prob >= 0.5, 1, 0))
 
-training_set$predicted_class <- factor(ifelse(training_set$predicted_prob >= 0.5, 1, 0))
 
-validation_set$predicted_prob <- predict(logistic_model, newdata = validation_set, type = "response")
-validation_set$predicted_class <- factor(ifelse(validation_set$predicted_prob >= 0.5, 1, 0))
 
-test_set$predicted_prob <- predict(logistic_model, newdata = test_set, type = "response")
-test_set$predicted_class <- factor(ifelse(test_set$predicted_prob >= 0.5, 1, 0))
-```
-
-```{r}
 #accuracy
 accuracy_train_logistic <- mean(training_set$diagnosis == training_set$predicted_class_lr)
 print(accuracy_train_logistic)
@@ -185,18 +138,11 @@ accuracy_valid_logistic <- mean(validation_set$diagnosis == validation_set$predi
 print(accuracy_valid_logistic)
 
 accuracy_test_logistic <- mean(test_set$diagnosis == test_set$predicted_class_lr)
-accuracy_train_logistic <- mean(training_set$diagnosis == training_set$predicted_class)
-print(accuracy_train_logistic)
-
-accuracy_valid_logistic <- mean(validation_set$diagnosis == validation_set$predicted_class)
-print(accuracy_valid_logistic)
-
-accuracy_test_logistic <- mean(test_set$diagnosis == test_set$predicted_class)
 print(accuracy_test_logistic)
-```
+
 ###PLOTTING
 
-```{r}
+
 # Create dataframes for each dataset accuracy
 accuracy_train_data <- data.frame(
   Metric = c("SVM", "Naive Bayes", "Logistic Regression"),
@@ -215,9 +161,9 @@ accuracy_test_data <- data.frame(
   Value = c(accuracy_test_svm, accuracy_test_nb, accuracy_test_logistic),
   Dataset = "Test"
 )
-```
 
-```{r}
+
+
 # Combine the data for all datasets
 combined_data <- rbind(
   accuracy_train_data,
@@ -231,9 +177,9 @@ combined_data$Dataset <- factor(combined_data$Dataset, levels = c("Train", "Vali
 # Print combined data to verify
 print(combined_data)
 
-```
 
-```{r}
+
+
 
 # Create the bar chart
 ggplot(combined_data, aes(x = Metric, y = Value, fill = Dataset)) +
@@ -250,47 +196,60 @@ ggplot(combined_data, aes(x = Metric, y = Value, fill = Dataset)) +
                                "Validation" = "#D4A5A5", 
                                "Test" = "#A5C4D4"))
 
-```
-Question number 4
-```{r}
+
 # Question number 4
 # Create the scatter plot SVM
 ggplot(data=test_set, aes(concave.points_worst,perimeter_worst, color = predicted_class_svm))+
   geom_point(size=3, alpha=0.85)+
   theme_minimal() +
-  scale_color_manual(values = c("0" = "#FF9999", "1" = "#99CCFF"))+
+  scale_color_manual(values = c("0" = "#F2545B", "1" = "#19323C"))+
   labs(
-    title="Scatter Plot of concave.points_worst vs perimeter_worst",
-    subtitle = "Colored by predicted class of SVM classifier",
+    title="Scatter Plot of concave.points_worst vs perimeter_worst by SVM",
     x="Concave Points Worst",
     y= "Perimeter Worst",
     color="SVM Class"
   )
+# Save the plot
+#ggsave("scatter_svm.png", width=10, height = 8, dpi=600)
 
 # Create the scatter plot for LR
 ggplot(data=test_set, aes(concave.points_worst,perimeter_worst, color = predicted_class_lr))+
-  geom_point(size=3, alpha=0.85)+
+  geom_point(size=5, alpha=0.85)+
   theme_minimal() +
-  scale_color_manual(values = c("0" = "#FF9999", "1" = "#99CCFF"))+
+  scale_color_manual(values = c("0" = "#F2545B", "1" = "#19323C"))+
   labs(
-    title="Scatter Plot of concave.points_worst vs perimeter_worst",
-    subtitle = "Colored by predicted class of Logistic Regression classifier",
+    title="Scatter Plot of concave.points_worst vs perimeter_worst by Logistic Regression",
     x="Concave Points Worst",
     y= "Perimeter Worst",
     color="LR Class"
+  )+
+  theme(
+    plot.title = element_text(size = 28), 
+    axis.title = element_text(size = 22), 
+    legend.title = element_text(size = 18),
+    legend.text = element_text(size = 16)
   )
 
+# Save the plot
+#ggsave("scatter_lr.png", width=10, height = 8, dpi=600)
+
 # Create the scatter plot for NB
-ggplot(data=test_set, aes(concave.points_worst,perimeter_worst, color = predicted_class_nb))+
-  geom_point(size=3, alpha=0.85)+
+ggplot(data=test_set, aes(concave.points_worst,perimeter_worst, color = predicted_class_svm))+
+  geom_point(size=5, alpha=0.9)+
   theme_minimal() +
-  scale_color_manual(values = c("0" = "#FF9999", "1" = "#99CCFF"))+
+  scale_color_manual(values = c("0" = "#F2545B", "1" = "#19323C"))+
   labs(
-    title="Scatter Plot of concave.points_worst vs perimeter_worst",
-    subtitle = "Colored by predicted class of Naive Bayes classifier",
+    title="Scatter Plot of concave.points_worst vs perimeter_worst by Naive Bayes",
     x="Concave Points Worst",
     y= "Perimeter Worst",
     color="NB Class"
+    )+
+  theme(
+    plot.title = element_text(size = 28), 
+    axis.title = element_text(size = 22), 
+    legend.title = element_text(size = 18),
+    legend.text = element_text(size = 16)
   )
-```
 
+# Save the plot
+#ggsave("scatter_nb.png", width=10, height = 8, dpi=600)
