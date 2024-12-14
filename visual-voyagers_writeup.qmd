@@ -17,33 +17,45 @@ execute:
   echo: false
 ---
 
-##Introduction
+## ##Introduction
 
 This project uses the Wisconsin Breast Cancer dataset to train and evaluate Logistic Regression, SVM, and Naive Bayes models, comparing their performance with metrics like accuracy, precision, recall, and AUC.It highlights the role of identifying the most effective model for diagnosis of how machine learning can enable, accurate decision-making in healthcare.
 
-##Background
+## ##Background
 
 The **Breast Cancer Wisconsin Diagnostic Dataset** is a widely used, high-quality dataset containing **569 samples** with **30 features** that describe tumor characteristics, allowing for effective **benign vs. malignant** binary classification.
 
-##Dataset
+## ##Dataset
 
 Source: The data set we choose for this project is "Breast Cancer Diagnostic Data" we are getting the data set from UCI Machine Learning Repository: <https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29>
 
 The source of dataset <https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data>
 
-##Exploration
+## ##Exploration
 
-###Question 1: How does the accuracy of a mdoel compare to another when predicting the diagnosis? Which model performs best on the test set?
+### ###Question 1: How does the accuracy of a mdoel compare to another when predicting the diagnosis? Which model performs best on the test set?
 
-####Introduction
+#### ####Introduction
 
 This question focuses on comparing the accuracy scores of Logistic Regression, Naive Bayes, and SVM models across training, validation, and test datasets.
 
-####Approach
+#### ####Approach
 
 To address the question, we did a bar chart with model types (SVM, Logistic Regression, and Naive Bayes) on one axis and their corresponding accuracy scores on the other. After training these models on the dataset, we will evaluate their performance on the test set to identify the best-performing model..
 
-####Analysis
+#### ####Analysis
+
+```{r}
+#necessary libraries
+
+library(e1071)
+library(caret)
+library(kernlab)
+library(plotly)
+library(ggcorrplot)
+library(pROC)
+
+```
 
 The bar chart produced in the project is displayed below
 
@@ -54,53 +66,187 @@ From the graph above, we can observe that:\
 -The accuracy bar chart shows that all three models (Logistic Regression, Naive Bayes, and SVM) exhibit high and comparable accuracy across training, validation, and test datasets, with minor variations.\
 -Among them, Logistic regression performed better followed closely by SVM, with Naive Bayes slightly behind.
 
-####Question 2: How do the Receiver Operating Characteristic (ROC) curves and Area Under the Curve (AUC) scores differ among the models?
+#### ####Question 2: How do the Receiver Operating Characteristic (ROC) curves and Area Under the Curve (AUC) scores differ among the models?
 
-####Introduction
+#### ####Introduction
 
 The ROC curves and AUC scores provide a comparative analysis of the models' performance in distinguishing between classes. They highlight differences in sensitivity and specificity, offering insights into which model performs best in handling classification tasks.
 
-####Approach
+#### ####Approach
 
 -We visualized a 2D ROC curve and a 3D ROC-AUC Plane combining the true positive rate, false positive rate and AUC values, with each model represented by a unique surface(threshold) .
 
 -By comparing the ROC curves and AUC scores, we aim to identify the model with the best overall performance, particularly in handling imbalanced data and balancing sensitivity and specificity effectively.
 
-####Analysis
+#### ####Analysis
 
-#####fig.2
+##### #####fig.2
 
-This ROC curves show all three models achieve high AUC values, with SVM scoring the highest (AUC=1.0), followed by Naive Bayes(AUC=0.98) and Logistic Regression(AUC=0.97). But if you look closely, there is a clear indication of trothel on the upper left which is analyzed in fig 3.\
-\
-\![ ROC , AUC curve](Roc_auc .png)
+\![Roc-auc curve](Roc_auc .png)
 
-#####fig.3
+This ROC curves show all three models achieve high AUC values, with SVM scoring the highest (AUC=1.0), followed by Naive Bayes(AUC=0.98) and Logistic Regression(AUC=0.97). But if you look closely, there is a clear indication of trothel on the upper left which is analyzed in fig 3.
 
-Even though SVM shows higher accuracy in Fig 2, zooming in reveals discrepancies among the models. Logistic Regression performs well due to its assumption of linear separability, which aligns with the dataset's characteristics. Naive Bayes struggles as it assumes all features are independent, which is not the case here. SVM, despite its high accuracy, is highly sensitive to hyper parameter tuning, limiting its potential for scalability and future improvements.
+##### #####fig.3
 
 \![Zoom in of Fig 2](zoomed_auc_roc.png)
 
-#####fig.4
+Even though SVM shows higher accuracy in Fig 2, zooming in reveals discrepancies among the models. Logistic Regression performs well due to its assumption of linear separability, which aligns with the dataset's characteristics. Naive Bayes struggles as it assumes all features are independent, which is not the case here. SVM, despite its high accuracy, is highly sensitive to hyper parameter tuning, limiting its potential for scalability and future improvements.
+
+##### #####fig.4
 
 The 3D plot shows, intersecting surfaces suggest differing trade-offs between TPR and FPR at varying thresholds, providing a visual insight into model performance across threshold levels.
 
 \![ROC 3D Plane](3D.png)
 
+```{r}
+# Load dataset
+training_set <- read.csv("data/train_set.csv")
+validation_set <- read.csv("data/valid_set.csv")
+test_set <- read.csv("data/test_set.csv")
+```
+
+```{r}
+# Convert diagnosis to factor
+training_set$diagnosis <- as.factor(training_set$diagnosis)
+validation_set$diagnosis <- as.factor(validation_set$diagnosis)
+test_set$diagnosis <- as.factor(test_set$diagnosis)
+
+```
+
+```{r}
+# Train SVM model
+svm_model <- svm(diagnosis ~ ., data = training_set, kernel = "radial", cost = 1, gamma = 0.01, probability = TRUE)
+
+```
+
+```{r}
+# Train Naive Bayes model
+nb_model <- naiveBayes(diagnosis ~ ., data = training_set)
+```
+
+```{r}
+# Train Logistic Regression model
+logistic_model <- glm(diagnosis ~ ., data = training_set, family = binomial)
+
+```
+
+```{r}
+library(pROC)
+# SVM
+svm_pred_prob <- predict(svm_model, test_set, probability = TRUE)
+svm_probabilities <- attr(svm_pred_prob, "probabilities")[, 2]
+roc_svm <- roc(test_set$diagnosis, svm_probabilities)
+auc_svm <- auc(roc_svm)
+
+# Naive Bayes
+nb_pred_prob <- predict(nb_model, test_set, type = "raw")[, 2]
+roc_nb <- roc(test_set$diagnosis, nb_pred_prob)
+auc_nb <- auc(roc_nb)
+
+# Logistic Regression
+logistic_pred_prob <- predict(logistic_model, test_set, type = "response")
+roc_logistic <- roc(test_set$diagnosis, logistic_pred_prob)
+auc_logistic <- auc(roc_logistic)
+
+```
+
+```{r}
+# Extract TPR, FPR, and Thresholds for each model
+data_svm <- data.frame(FPR = 1 - roc_svm$specificities, TPR = roc_svm$sensitivities, Threshold = roc_svm$thresholds)
+data_nb <- data.frame(FPR = 1 - roc_nb$specificities, TPR = roc_nb$sensitivities, Threshold = roc_nb$thresholds)
+data_logistic <- data.frame(FPR = 1 - roc_logistic$specificities, TPR = roc_logistic$sensitivities, Threshold = roc_logistic$thresholds)
+```
+
+```{r}
+# Add SVM surface
+p <- plot_ly()
+p <- add_trace(p, x = data_svm$FPR, y = data_svm$TPR, z = data_svm$Threshold,
+               type = "mesh3d", name = paste("SVM (AUC =", round(auc_svm, 2), ")"), color = I("blue"))
+```
+
+```{r}
+# Add Naive Bayes surface
+
+p <- add_trace(p, x = data_nb$FPR, y = data_nb$TPR, z = data_nb$Threshold,
+               type = "mesh3d", name = paste("Naive Bayes (AUC =", round(auc_nb, 2), ")"), color = I("green"))
+```
+
+```{r}
+# Add Logistic Regression surface
+p <- add_trace(p, x = data_logistic$FPR, y = data_logistic$TPR, z = data_logistic$Threshold,
+               type = "mesh3d", name = paste("Logistic Regression (AUC =", round(auc_logistic, 2), ")"), color = I("red"))
+
+```
+
+```{r}
+# Layout for the 3D plot
+p <- layout(p, scene = list(
+  xaxis = list(title = "False Positive Rate (FPR)"),
+  yaxis = list(title = "True Positive Rate (TPR)"),
+  zaxis = list(title = "Threshold")
+),
+title = "3D ROC Surface Plot Comparison")
+print(p)
+```
+
 This ROC surface plot highlights SVM achieving consistently high accuracy, outperforming others. Logistic Regression and Naive Bayes overlap (orange surface) due to their similar accuracy trends. While Logistic Regression benefits from linear separability, Naive Bayes struggles with correlated variables, and SVM’s robustness relies on hyper parameter tuning.
 
-####Question 3:How do the top two correlated features with the target variable influence the classifications of SVM, Logistic Regression, and Naive Bayes?
+#### ####Question 3:How do the top two correlated features with the target variable influence the classifications of SVM, Logistic Regression, and Naive Bayes?
 
-####Introduction
+####  ####Introduction
 
 It shows how top two features are highly correlated with the target variable, significantly impact model classification.
 
-####Approach
+#### ####Approach
 
 To analyze the relationships between features and model performance, we computed correlations for numeric variables, highlighting the top 5 highest and lowest correlations using a correlation matrix. Decision boundaries for the best model (Logistic Regression) and the worst model(Naive Bayes) were visualized using scatter plots with top two variables.
 
-####Analysis
+#### ####Analysis
 
-#####fig.5
+##### #####fig.5
+
+```{r}
+
+# library
+library(ggcorrplot)
+
+#dataset
+data <- read.csv("data/cancer_dataset_cleaned.csv")
+
+data$diagnosis <- as.numeric(as.factor(data$diagnosis))
+
+numeric_data <- data[sapply(data, is.numeric)]
+
+correlation_matrix <- cor(numeric_data, use = "complete.obs")
+
+cor_values <- correlation_matrix[, "diagnosis"]
+
+cor_values <- cor_values[names(cor_values) != "diagnosis"]
+
+top_5_highest <- sort(cor_values, decreasing = TRUE)[1:5]
+
+top_5_lowest <- sort(cor_values, decreasing = FALSE)[1:5]
+
+selected_variables <- c("diagnosis", names(top_5_highest), names(top_5_lowest))
+
+selected_correlation_matrix <- correlation_matrix[selected_variables, selected_variables]
+
+masked_matrix <- selected_correlation_matrix
+masked_matrix[upper.tri(masked_matrix)] <- NA
+
+ggcorrplot(masked_matrix,
+           method = "square",
+           type = "full",
+           lab = TRUE,
+           lab_size = 3,
+           colors = c("blue", "white", "red"),
+           title = "Correlation Heatmap: Diagnosis and Selected Variables",
+           legend.title = "Correlation") +
+  theme(axis.text.x = element_blank(),
+        axis.ticks.x = element_blank())
+
+
+```
 
 \![ Heatmap of Correlation matrix ](Q3_CorrelationMatrix.png)
 
@@ -109,13 +255,13 @@ The heatmap highlights the correlation between "diagnosis" and other variables. 
 
 Based on the top two correlated features fig 6 and 7 shows the decision boundaries of Logistic Regression(best-performing) and Naive Bayes (worst-performing).
 
-#####Fig. 6
+##### #####Fig. 6 
 
 \![Classification boundary by Naive Bayes using two of best features](scatter_plot_nb.png)
 
 Multinomial Naive Bayes assumes that all features are conditionally independent—a condition rarely met in practice. This unrealistic assumption leads to its subpar performance compared to the other algorithms.
 
-#####Fig.7
+##### #####Fig.7
 
 While, Logistic Regression assumes a linear relationship between the target variable and the independent variables, which aligns well with our dataset, resulting in its superior performance.
 
@@ -123,11 +269,11 @@ While, Logistic Regression assumes a linear relationship between the target vari
 
 Concluding,the difference is subtle because we are dealing with a very small percentage of error margin. However, even a small difference in a Machine Learning algorithm’s accuracy can have far-reaching impacts in the real world.
 
-##Discussion and Conclusion
+## ##Discussion and Conclusion
 
 Logistic Regression performed the best as it assumes linear separability between the target and features, which aligns well with the dataset’s characteristics. while Naive Bayes performed the worst due to its assumption of feature independence, which was violated as many predictors were highly correlated. SVM is highly sensitive to hyper-parameter if the data is linearly separable might not offer significant advantages over logistic regression. Hence, model selection is very important.
 
-##Future work
+## ##Future work
 
 • Optimize the parameters of each model through hyperparameter tuning and analyze the resulting improvements.
 
@@ -135,7 +281,7 @@ Logistic Regression performed the best as it assumes linear separability between
 
 • Study and visualize alternative model evaluation metrics for deeper insights.
 
-##References
+## ##References
 
 -   Dataset Source:
 
